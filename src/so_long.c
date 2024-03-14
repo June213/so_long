@@ -6,7 +6,7 @@
 /*   By: jsalaber <jsalaber@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 11:48:22 by jsalaber          #+#    #+#             */
-/*   Updated: 2024/03/14 11:58:52 by jsalaber         ###   ########.fr       */
+/*   Updated: 2024/03/14 12:10:56 by jsalaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,5 @@ int	main(int argc, char **argv)
 	check_wall(&game);
 	check_content(&game);
 	locate_player(&game);
-	flood_fill(&game);
+	flood_fill_util(&game, game.player.x, game.player.y);
 }

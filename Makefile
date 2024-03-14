@@ -14,6 +14,8 @@ OBJ_DIR	= obj
 
 SRCS	= $(SRC_DIR)/so_long.c \
 		$(SRC_DIR)/input.c \
+		$(SRC_DIR)/player.c \
+		$(SRC_DIR)/floodfill.c \
 
 OBJS    = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRCS))
 

@@ -6,7 +6,7 @@
 /*   By: jsalaber <jsalaber@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 12:05:28 by jsalaber          #+#    #+#             */
-/*   Updated: 2024/03/14 11:58:25 by jsalaber         ###   ########.fr       */
+/*   Updated: 2024/03/14 12:11:16 by jsalaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ void	flood_fill_util(t_game *game, int y, int x)
 	if (game->map.map[y][x] == 'E')
 		game->player.exit = true;
 	game->map.map[y][x] = 'F';
-	flood_fill(game, y + 1, x);
-	flood_fill(game, y - 1, x);
-	flood_fill(game, y, x + 1);
-	flood_fill(game, y, x - 1);
+	flood_fill_util(game, y + 1, x);
+	flood_fill_util(game, y - 1, x);
+	flood_fill_util(game, y, x + 1);
+	flood_fill_util(game, y, x - 1);
 }
 
 void	flood_fill(t_game *game)
