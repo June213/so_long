@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   floodfill.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsalaber <jsalaber@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: junesalaberria <junesalaberria@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 12:05:28 by jsalaber          #+#    #+#             */
-/*   Updated: 2024/03/14 12:11:16 by jsalaber         ###   ########.fr       */
+/*   Updated: 2024/03/15 08:40:12 by junesalaber      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	flood_fill_util(t_game *game, int y, int x)
+void	ft_flood_fill(t_game *game, int y, int x)
 {
 	if (game->map.map[y][x] == '1' || game->map.map[y][x] == 'F')
 		return ;
@@ -21,13 +21,15 @@ void	flood_fill_util(t_game *game, int y, int x)
 	if (game->map.map[y][x] == 'E')
 		game->player.exit = true;
 	game->map.map[y][x] = 'F';
-	flood_fill_util(game, y + 1, x);
-	flood_fill_util(game, y - 1, x);
-	flood_fill_util(game, y, x + 1);
-	flood_fill_util(game, y, x - 1);
+	ft_flood_fill(game, y + 1, x);
+	ft_flood_fill(game, y - 1, x);
+	ft_flood_fill(game, y, x + 1);
+	ft_flood_fill(game, y, x - 1);
 }
 
-void	flood_fill(t_game *game)
+void	map_error(t_game *game)
 {
-	flood_fill_util(game, game->player.y, game->player.x);
+	if (game->map.coin != game->player.coins || game->player.exit == false)
+		ft_error("Error\nMap is not playable");
+	ft_free(game);
 }

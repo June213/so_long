@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsalaber <jsalaber@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: junesalaberria <junesalaberria@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 11:48:22 by jsalaber          #+#    #+#             */
-/*   Updated: 2024/03/14 12:10:56 by jsalaber         ###   ########.fr       */
+/*   Updated: 2024/03/15 10:46:09 by junesalaber      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,20 @@ void	ft_error(char *str)
 {
 	ft_putendl_fd(str, 2);
 	exit(1);
+}
+
+void	ft_free(t_game *game)
+{
+	int	y;
+
+	y = 0;
+	while (game->map.map[y])
+	{
+		free(game->map.map[y]);
+		y++;
+	}
+	free(game->map.map);
+	game->map.map = NULL;
 }
 
 int	main(int argc, char **argv)
@@ -31,5 +45,9 @@ int	main(int argc, char **argv)
 	check_wall(&game);
 	check_content(&game);
 	locate_player(&game);
-	flood_fill_util(&game, game.player.x, game.player.y);
+	ft_flood_fill(&game, game.player.y, game.player.x);
+	map_error(&game);
+	read_map(argv[1], &game);
+	game.mlx = mlx_init();
+	game.mlx_windo = mlx_new_window(game.mlx, 1920, 1080, "so_long");
 }

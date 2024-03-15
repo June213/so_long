@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsalaber <jsalaber@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: junesalaberria <junesalaberria@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 12:05:59 by jsalaber          #+#    #+#             */
-/*   Updated: 2024/03/14 11:59:22 by jsalaber         ###   ########.fr       */
+/*   Updated: 2024/03/15 10:44:13 by junesalaber      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "libft/libft.h"
 # include "libft/get_next_line.h"
 # include "printf/ft_printf.h"
+# include "mlx/mlx.h"
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
@@ -59,10 +60,11 @@ void	check_content(t_game *game);
 void	locate_player(t_game *game);
 
 // floodfill.c
-void	flood_fill_util(t_game *game, int y, int x);
-void	flood_fill(t_game *game);
+void	ft_flood_fill(t_game *game, int y, int x);
+void	map_error(t_game *game);
 
 // so_long.c
 void	ft_error(char *str);
+void	ft_free(t_game *game);
 
 #endif
