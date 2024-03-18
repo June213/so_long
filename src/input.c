@@ -6,7 +6,7 @@
 /*   By: jsalaber <jsalaber@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 11:47:13 by jsalaber          #+#    #+#             */
-/*   Updated: 2024/03/14 11:36:24 by jsalaber         ###   ########.fr       */
+/*   Updated: 2024/03/18 13:10:01 by jsalaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,10 @@ void	read_map(char *argv, t_game *game)
 	fd = open(argv, O_RDONLY);
 	if (fd < 0)
 		ft_error("Error\nFile error");
-	game->map.map = (char **)malloc(sizeof(char *) * game->map.y + 1);
+	game->map.map = malloc(sizeof(char *) * (game->map.y + 1));
 	if (!game->map.map)
 		return ;
+	game->map.map[game->map.y] = NULL;
 	line = get_next_line(fd);
 	if (!line)
 		ft_error("Error\nEmpty map");
@@ -70,7 +71,6 @@ void	read_map(char *argv, t_game *game)
 		line = get_next_line(fd);
 		i++;
 	}
-	game->map.map[i] = NULL;
 	close(fd);
 }
 

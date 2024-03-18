@@ -6,7 +6,7 @@
 /*   By: jsalaber <jsalaber@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 07:54:30 by jsalaber          #+#    #+#             */
-/*   Updated: 2024/01/10 13:41:41 by jsalaber         ###   ########.fr       */
+/*   Updated: 2024/03/18 11:32:17 by jsalaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_printchar(char c)
 	return (1);
 }
 
-int	ft_strlen(const char *s)
+static int	ft_strlen(const char *s)
 {
 	int	count;
 

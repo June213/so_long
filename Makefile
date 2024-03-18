@@ -2,7 +2,7 @@ NAME	= so_long
 
 CC 		= gcc
 
-CFLAGS	= -Wall -Wextra -Werror -g3 
+CFLAGS	= -Wall -Wextra -Werror -g3 #-fsanitize=address
 
 MLX_FLAG = -framework OpenGL -framework AppKit
 
@@ -16,6 +16,10 @@ SRCS	= $(SRC_DIR)/so_long.c \
 		$(SRC_DIR)/input.c \
 		$(SRC_DIR)/player.c \
 		$(SRC_DIR)/floodfill.c \
+		$(SRC_DIR)/move.c \
+		$(SRC_DIR)/hooks.c \
+		$(SRC_DIR)/put_images.c \
+		$(SRC_DIR)/images.c \
 
 OBJS    = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRCS))
 
