@@ -4,6 +4,6 @@
 
 ## Uso
 
-Compila y ejecuta el juego
-   make
-   ./so_long
+Compila y ejecuta el juego:  
+   make  
+   ./so_long  
